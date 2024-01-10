@@ -3,13 +3,12 @@
 <head>
     <meta charset="utf-8">
     <title>Tutorial of Thymeleaf</title>
-    <link rel="stylesheet" th:href="@{/css/input.css}">
 </head>
 <body>
     <h1>Thymeleaf課題</h1>
     <h3>入力画面</h3>
     <p>値を入力してください。</p>
-    <form method="post" action="/output">
+    <p th:unless="${param.previous} == null" th:text="'前回入力された値は「' + ${param.previous} + '」でした。'"></p>    <form method="post" action="/output">
         <input type="text" name="val">
         <button type="submit">送信</button>
     </form>
